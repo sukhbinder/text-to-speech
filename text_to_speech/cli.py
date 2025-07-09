@@ -1,11 +1,18 @@
 import click
 import re
 from .tts import text_to_speech
+from .common import voices
 
 
 @click.command(context_settings={"help_option_names": ["-h", "--help"]})
 @click.argument("text")
-@click.option("-v", "--voice", default="hm_omega", help="Voice to use.")
+@click.option(
+    "-v",
+    "--voice",
+    default="hm_omega",
+    help="Voice to use.",
+    type=click.Choice(voices if voices else ["hm_omega"]),
+)
 @click.option("-l", "--lang", default="en-us", help="Language code.")
 @click.option(
     "-o",
