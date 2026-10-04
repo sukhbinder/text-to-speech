@@ -10,32 +10,81 @@ Text to speech using Kokoro
 ## Installation
 
 Install this tool using `pip`:
+
 ```bash
 pip install text-to-speech
 ```
+
 ## Usage
 
 For help, run:
+
 ```bash
 txt2speech --help
 ```
+
 You can also use:
+
 ```bash
 python -m txt2speech --help
 ```
+
+### Basic Usage
+
+Convert text to speech with default settings:
+
+```bash
+txt2speech "Hello, world!"
+```
+
+Specify a voice:
+
+```bash
+txt2speech "Hello, world!" -v hm_omega
+```
+
+Set the language:
+
+```bash
+txt2speech "Hello, world!" -l en-us
+```
+
+Output to a specific file:
+
+```bash
+txt2speech "Hello, world!" -o greeting.wav
+```
+
+All options combined:
+
+```bash
+txt2speech "Hello, world!" -v hm_omega -l en-us -o greeting.wav
+```
+
+### Available Options
+
+- `-v, --voice`: Voice to use (default: `hm_omega`)
+- `-l, --lang`: Language code (default: `en-us`)
+- `-o, --output`: Output wav file name (optional, auto-generated if not provided)
+
 ## Development
 
 To contribute to this tool, first checkout the code. Then create a new virtual environment:
+
 ```bash
 cd text-to-speech
 python -m venv venv
 source venv/bin/activate
 ```
+
 Now install the dependencies and test dependencies:
+
 ```bash
 pip install -e '.[test]'
 ```
+
 To run the tests:
+
 ```bash
 python -m pytest
 ```
